@@ -33,11 +33,13 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
     let myfunction = async (data: any) => {
       try {
         const filteredpath = await filterImageFromURL(url);
+        res.statusCode = 200;
         res.sendFile(filteredpath, function (err) {
           console.log('Sent:', filteredpath);
           deleteLocalFiles(new Array(filteredpath));
         })
       } catch (error) {
+        res.statusCode = 500;
         res.send(error);
       }
     }
