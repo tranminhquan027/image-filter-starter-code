@@ -40,7 +40,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
         })
       } catch (error) {
         res.statusCode = 500;
-        res.send(error);
+        res.send("URL not valid");
       }
     }
     myfunction(url);
